@@ -3,7 +3,7 @@
 <main class='card card--light'>
 
   <!-- Question -->
-  <h3 class='border'>Which of the following is NOT part of the Woodland Wanderer Way?</h3>
+  <h3 class='border'>{{model.prompt}}</h3>
   <div class='border'>
     <div class='grid group'>
 
@@ -11,34 +11,22 @@
       <div class='card-content grid-box grid-box--3of5'>
 
         <ul class='list list--answer list--answer--flush'>
+          {{#each model.options as |option|}}
           <li class='list-item'>
-            <span>Honesty</span>
+            <span>{{option.label}}</span>
           </li>
-          <li class='list-item'>
-            <span>Integrity</span>
-          </li>
-          <li class='list-item'>
-            <span>Impatience</span>
-          </li>
+          {{/each}}
         </ul>
 
       </div>
 
       <!-- Preview -->
       <div class='grid-box grid-box--2of5'>
-
+      {{#each model.options as |option|}}
         <div class='progress'>
-          <p class='progress-info'>2 votes (33%)</p>
+          <p class='progress-info'> X votes (XX%)</p>
         </div>
-
-        <div class='progress'>
-          <p class='progress-info'>2 votes (33%)</p>
-        </div>
-
-        <div class='progress'>
-          <p class='progress-info'>2 votes (33%)</p>
-        </div>
-
+      {{/each}}
       </div>
 
     </div> <!-- /grid -->
