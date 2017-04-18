@@ -1,6 +1,7 @@
 import Ember from 'ember';
-import Poll from 'EmQuiz/models/poll';
-import Option from 'EmQuiz/models/option';
+import Option from 'em-quiz/models/option';
+import Poll from 'em-quiz/models/poll';
+
 
 const polls = []; //This stores an array of poll Objects, with a poll being defined by a Survey with Options you can pick from
 
