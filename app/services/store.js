@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Option from 'em-quiz/models/option';
 import Poll from 'em-quiz/models/poll';
+import Vote from 'em-quiz/models/vote';
 
 
 const polls = []; //This stores an array of poll Objects, with a poll being defined by a Survey with Options you can pick from
@@ -41,5 +42,11 @@ export default Ember.Service.extend({ //please remember these are properties in 
   },
   findPoll(id){
     return this.findAllPolls().findBy('id',id); //access the poll array and return a specific poll by id
+  },
+  createVote(poll){
+    return Vote.create({poll: poll});
+  },
+  troubleshoot(){ //using this to test if store is properly hooked up
+    return 3;
   }
 });

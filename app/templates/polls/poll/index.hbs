@@ -2,14 +2,14 @@
         <main class='card card--light'>
 
           <!-- Question -->
-          <h3 class='border'>{{model.prompt}}</h3>
+          <h3 class='border'>{{model.poll.prompt}}</h3>
           <div class='border'>
             <div class='grid group'>
 
               <!-- Answers -->
               <div class='card-content grid-box grid-box--3of5'>
                 <ul class='list list--answer'>
-                  {{#each model.options as |option|}}
+                  {{#each model.poll.options as |option|}}
                   <li class='list-item'>
                     <a href='#' class='list-item-checkbox'>
                       <b class='srt'>Select</b>
