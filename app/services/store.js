@@ -35,8 +35,11 @@ poll.get('options').pushObjects([ //retrieves the 'options property array' of th
 ]);
 polls.pushObject(poll); //insert created poll into the array.
 
-export default Ember.Service.extend({
+export default Ember.Service.extend({ //please remember these are properties in some kind of object... -_-
   findAllPolls(){ //allows access to the generated data
     return polls;
+  },
+  findPoll(id){
+    return this.findAllPolls().findBy('id',id); //access the poll array and return a specific poll by id
   }
 });
