@@ -15,28 +15,19 @@
         <main class='card card--light'>
 
           <!-- Question -->
-          <form class='form' action=''>
+          <form class='form' {{action 'createPoll' model on='submit'}}>
             <fieldset class='form-field'>
               <label class='form-label' for='question'>Question</label>
-              <input class='form-input' id='question' type='text' />
+              {{input class='form-input' id='question' type='text' value=model.prompt}}
             </fieldset>
-
+            {{#each model.options as |option|}}
             <fieldset class='form-field'>
               <label class='form-label'>Option</label>
-              <input class='form-input' type='text' />
+              {{input class='form-input' type='text' value=option.label}}
             </fieldset>
 
-            <fieldset class='form-field'>
-              <label class='form-label'>Option</label>
-              <input class='form-input' type='text' />
-            </fieldset>
-
-            <fieldset class='form-field'>
-              <label class='form-label'>Option</label>
-              <input class='form-input' type='text' />
-            </fieldset>
-
-            <a href='/quiz/' class='btn btn--primary btn--form'>Submit!</a>
+            {{/each}}
+            <button href='/quiz/' class='btn btn--primary btn--form'>Submit!</button>
           </form>
         </main> <!-- /card -->
 

@@ -49,8 +49,23 @@ export default Ember.Service.extend({ //please remember these are properties in 
   saveVote(vote){
     const poll = vote.get('poll'); //access the poll through the vote model, refer to createVote(vote)
     poll.get('votes').pushObject(vote); //pushes it into the poll votes array
-  }
-  ,
+  },
+  createPoll(){ //creates a Poll
+    const poll = Poll.create({ //we use a const so the orignal poll made can't be modified to something else (best practice)
+      options: [],
+      votes: []
+    });
+    poll.get('options').pushObjects([ //push an array of 3 empty options into this blank poll.
+      Option.create({poll:poll}),
+      Option.create({poll:poll}),
+      Option.create({poll:poll})
+    ]);
+    return poll; //basically we create an empty poll template we can save stuff to.
+  },
+  savePoll(poll){ //pretty straightforward
+    polls.pushObject(poll); //adds poll to the collection
+    poll.set('id',polls.length);
+  },
   troubleshoot(){ //using this to test if store is properly hooked up
     return 3;
   }
