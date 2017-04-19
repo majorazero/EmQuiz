@@ -10,6 +10,10 @@ export default Ember.Route.extend({
   actions:{
     toggleOption(vote,option){ //lets you access the model in the index route.
       vote.toggleOption(option);
+    },
+    castVote(vote){
+      this.get('store').saveVote(vote); //calls the saveVote function in the store
+      this.transitionTo('polls.poll.results'); //changes the page to the results page.
     }
   }
 });

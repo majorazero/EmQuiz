@@ -46,6 +46,11 @@ export default Ember.Service.extend({ //please remember these are properties in 
   createVote(poll){
     return Vote.create({poll: poll});
   },
+  saveVote(vote){
+    const poll = vote.get('poll'); //access the poll through the vote model, refer to createVote(vote)
+    poll.get('votes').pushObject(vote); //pushes it into the poll votes array
+  }
+  ,
   troubleshoot(){ //using this to test if store is properly hooked up
     return 3;
   }

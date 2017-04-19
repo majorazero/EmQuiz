@@ -24,7 +24,7 @@
       <div class='grid-box grid-box--2of5'>
       {{#each model.options as |option|}}
         <div class='progress'>
-          <p class='progress-info'> X votes (XX%)</p>
+          <p class='progress-info'>{{option-tally option=option poll=model}}</p>
         </div>
       {{/each}}
       </div>
